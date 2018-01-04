@@ -6,6 +6,8 @@ import request from "superagent";
 
 class Patient extends Component {
   state = {
+    dark:"true",
+    height: "300px",
     servPatients: new PatientService(),
     listPatients: []
   };
@@ -31,7 +33,9 @@ class Patient extends Component {
   render() {
     // console.log("Response:");
     // console.log(this.state.listPatients);
-    return <Patients listPatients={this.state.listPatients} />;
+    return (
+      <Patients dark={this.state.dark} listPatients={this.state.listPatients}/>
+    );
   }
 }
 
