@@ -1,0 +1,14 @@
+.headerTable {
+    background-color: #37373A;
+    color: white;
+}
+
+.newButton {
+    float: right;
+}
+
+.table td {
+    padding: 0.2rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
