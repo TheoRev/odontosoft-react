@@ -2,39 +2,38 @@ import React, { Component } from "react";
 import Patients from "../components/patients";
 import PatientService from "../../services/patient";
 import request from "superagent";
+import FormPatient from "../components/form-patient";
 // import axios from "axios";
 
 class Patient extends Component {
   state = {
-    dark:"true",
+    dark: "true",
     height: "300px",
     servPatients: new PatientService(),
-    listPatients: []
+    listPatients: [],
+    modal: false
   };
   componentDidMount() {
-    // debugger;
-
-    // this.state.listPatients = this.state.servPatients.getAllPatients();
-
     request.get("http://localhost:3030/api/patients/").end((err, resp) => {
       const pacientes = JSON.parse(resp.text);
       // console.log(pacientes);
       this.setState({ listPatients: pacientes });
     });
-
-    // this.state.listPatients = this.state.servPatients.getAllPatients();
-
-    // this.state.listPatients = axios({
-    //   method: "get",
-    //   url: "http://localhost:3030/api/patients/"
-    // }).then(data => data.data);
-    // console.log(this.state.listPatients);
   }
+
+  newPtient() {
+
+  }
+
   render() {
     // console.log("Response:");
     // console.log(this.state.listPatients);
     return (
-      <Patients dark={this.state.dark} listPatients={this.state.listPatients}/>
+      <div>
+        <Patients dark={this.state.dark} listPatients={this.state.listPatients} newPtient={this.newPtient} />
+
+        <FormPatient />
+      </div>
     );
   }
 }
