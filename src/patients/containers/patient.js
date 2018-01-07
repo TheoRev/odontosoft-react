@@ -26,6 +26,7 @@ class Patient extends Component {
       this.setState({ listPatients: pacientes });
     });
   }
+
   render() {
     // console.log("Response:");
     // console.log(this.state.listPatients);

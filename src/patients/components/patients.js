@@ -23,7 +23,11 @@ function Patients(props) {
             <CardBody>
               <CardTitle>
                 PACIENTES{" "}
+<<<<<<< HEAD
                 <Button className="newButton" color="info" onClick={props.toggle}>
+=======
+                <Button className="newButton" color="info" onClick={props.modifyPatient}>
+>>>>>>> 0372273fd1dea73ae50be588fb961fa7ddd3e9e2
                   <FontAwesome.FaPlus />
                   Add
                 </Button>
@@ -48,12 +52,12 @@ function Patients(props) {
                   {props.listPatients.map((row, index) => (
                     <tr key={index}>
                       <td className="smallContentCol">{row.ID}</td>
-                      <td>{moment(row.date_init).format("DD/MM/YYYY")}</td>
-                      <td>{row.nom_ape}</td>
+                      <td>{moment(row.dateInit).format("DD/MM/YYYY")}</td>
+                      <td>{row.nomApe}</td>
                       <td className="smallContentCol">{row.age}</td>
                       <td className="smallContentCol">{row.sex}</td>
-                      <td>{moment(row.date_nac).format("DD/MM/YYYY")}</td>
-                      <td>{row.tel_cel}</td>
+                      <td>{moment(row.dateNac).format("DD/MM/YYYY")}</td>
+                      <td>{row.telCel}</td>
                       <td className="smallContentCol">
                         {(() => {
                           return row.diabettes ? (
@@ -75,14 +79,14 @@ function Patients(props) {
                       <td className="smallContentCol">
                         <Button
                           color="warning"
-                          title={"Modificar - " + row.nom_ape}
+                          title={"Modificar - " + row.nomApe}
                           size="sm"
                         >
                           <FontAwesome.FaPencil />
                         </Button>&nbsp;{" "}
                         <Button
                           color="danger"
-                          title={"Eliminar - " + row.nom_ape}
+                          title={"Eliminar - " + row.nomApe}
                           size="sm"
                         >
                           <FontAwesome.FaTrash />
