@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Patients from "../components/patients";
 import PatientService from "../../services/patient";
 import request from "superagent";
-import FormPatient from "../components/frmPatient";
+import FormPatient from "../components/form-patient";
 
 class Patient extends Component {
   state = {
@@ -17,6 +17,11 @@ class Patient extends Component {
     this.setState({
       modal: !this.state.modal
     });
+  };
+
+  execute = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
   };
 
   componentDidMount() {
@@ -37,7 +42,7 @@ class Patient extends Component {
           listPatients={this.state.listPatients}
           toggle={this.toggle}
         />
-        <FormPatient modal={this.state.modal} toggle={this.toggle} />
+        <FormPatient modal={this.state.modal} toggle={this.toggle} execute={this.execute} />
       </div>
     );
   }

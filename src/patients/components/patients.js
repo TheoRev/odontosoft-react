@@ -23,11 +23,7 @@ function Patients(props) {
             <CardBody>
               <CardTitle>
                 PACIENTES{" "}
-<<<<<<< HEAD
                 <Button className="newButton" color="info" onClick={props.toggle}>
-=======
-                <Button className="newButton" color="info" onClick={props.modifyPatient}>
->>>>>>> 0372273fd1dea73ae50be588fb961fa7ddd3e9e2
                   <FontAwesome.FaPlus />
                   Add
                 </Button>

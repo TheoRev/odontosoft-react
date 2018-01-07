@@ -1,21 +1,121 @@
-import React from 'react';
+import React from "react";
+import {
+    Button,
+    Modal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Input,
+    Label,
+    Form,
+    FormGroup
+} from "reactstrap";
 
-function FormPatient(props) {
+function FomPatient(props) {
+    // console.log(props.modal);
+
     return (
         <div>
-            <Button color="danger" onClick={props.toggle}>{props.buttonLabel}</Button>
-            <Modal isOpen={state.modal} toggle={props.toggle} className={props.className}>
-                <ModalHeader toggle={props.toggle}>Modal title</ModalHeader>
-                <ModalBody>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={props.toggle}>Do Something</Button>{' '}
-                    <Button color="secondary" onClick={props.toggle}>Cancel</Button>
-                </ModalFooter>
+            <Modal
+                isOpen={props.modal}
+                toggle={props.toggle}
+                backdrop={"static"}
+                size={"lg"}
+            >
+                <form onSubmit={props.execute}>
+                    <ModalHeader toggle={props.toggle}>PACIENTE</ModalHeader>
+                    <ModalBody>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    <FormGroup>
+                                        <Label for="" size="sm">
+                                            ID
+                                        </Label>
+                                        <Input type="text" name="txtId" disabled bsSize="sm" />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label size="sm">Fecha</Label>
+                                        <Input type="date" name="txtFecha" bsSize="sm" required />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label size="sm">Nombre y Ape.</Label>
+                                        <Input type="text" name="txtNomApe" bsSize="sm" required />
+                                    </FormGroup>
+                                    <FormGroup check inline>
+                                        <Label size="sm">Sexo:</Label>
+                                        <FormGroup check>
+                                            <Label check>
+                                                <Input type="radio" id="rbMasc" name="rbSex" />
+                                                Masculino
+                                            </Label>
+                                        </FormGroup>
+                                        <FormGroup check>
+                                            <Label check>
+                                                <Input type="radio" id="rbFem" name="rbSex" />
+                                                Femenino
+                                            </Label>
+                                        </FormGroup>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label size="sm">Fec. Nacimiento</Label>
+                                        <Input type="date" name="txtFecNac" bsSize="sm" required />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label size="sm">Dirección</Label>
+                                        <Input type="text" name="txtDir" bsSize="sm" required />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label size="sm">Ocupación</Label>
+                                        <Input type="text" name="txtOcup" bsSize="sm" required />
+                                    </FormGroup>
+                                </div>
+                                <div className="col-sm-6">
+                                    <FormGroup>
+                                        <Label size="sm">Telef. / Cel.</Label>
+                                        <Input type="text" name="txtTelefCel" bsSize="sm" required />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label size="sm">Alergias</Label>
+                                        <Input type="text" name="txtAlergias" bsSize="sm" required />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label size="sm">Operaciones</Label>
+                                        <Input type="text" name="txtOperaciones" bsSize="sm" required />
+                                    </FormGroup>
+                                    <FormGroup check>
+                                        <Label check>
+                                            <Input type="checkbox" name="cbDiab" />
+                                            Diabettes
+                                        </Label>
+                                    </FormGroup>
+                                    <FormGroup check>
+                                        <Label check>
+                                            <Input type="checkbox" name="cbHiper" />
+                                            Hipertension
+                                        </Label>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label size="sm">Otros</Label>
+                                        <Input type="textarea" name="txtOtros" bsSize="sm" />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label size="sm">Trat. Médicos</Label>
+                                        <Input type="textarea" name="txtTratMed" bsSize="sm" />
+                                    </FormGroup>
+                                </div>
+                            </div>
+                        </div>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button type="submit" color="success">
+                            GUARDAR
+                        </Button>
+                    </ModalFooter>
+                </form>
             </Modal>
         </div>
-    )
+    );
 }
 
-export default FormPatient;
+export default FomPatient;
