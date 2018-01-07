@@ -4,10 +4,10 @@ import * as FontAwesome from "react-icons/lib/fa";
 import "./patients.css";
 
 function Patients(props) {
-  console.log("Resp 2.");
-  console.log(props.listPatients);
-  console.log(props.dark);
-
+  // console.log("Resp 2.");
+  // console.log(props.listPatients);
+  // console.log(props.dark);
+  
   const styles = {
     propContainer: { width: 200, overflow: "hidden", margin: "20px auto 0" },
     propToggleHeader: { margin: "20px auto 10px" }
@@ -23,7 +23,7 @@ function Patients(props) {
             <CardBody>
               <CardTitle>
                 PACIENTES{" "}
-                <Button className="newButton" color="info">
+                <Button className="newButton" color="info" onClick={props.toggle}>
                   <FontAwesome.FaPlus />
                   Add
                 </Button>
